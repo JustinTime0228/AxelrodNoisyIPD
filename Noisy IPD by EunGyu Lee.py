@@ -122,7 +122,7 @@ class Nydegger(Strategy):
     def move(self):
         NydeggerNum = 0
         NydeggerDefect = [1,6,7,17,22,23,26,29,30,31,33,38,39,45,49,54,55,58,61]
-        if len(self.history)<4:
+        if len(self.history)<3:
             if len(self.history) == 2:
                 if self.history[0] == 'C' and self.opponent_history[0] == 'D':
                     if self.history[1] == 'D' and self.opponent_history[1] == 'C':
@@ -130,7 +130,7 @@ class Nydegger(Strategy):
             elif not self.opponent_history:
                 return 'C'
             return self.opponent_history[-1]
-        elif len(self.history)>3:
+        elif len(self.history)>=3:
             if self.opponent_history[-3] == 'D':
                 NydeggerNum = NydeggerNum + 32
             if self.history[-3] == 'D':
